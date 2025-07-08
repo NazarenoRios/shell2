@@ -1,0 +1,53 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "out",
+  "framework": "nextjs",
+  "installCommand": "npm install",
+  "env": {
+    "NEXT_PUBLIC_MF_VOLUNTARIAS_PATH": "/liquideypaguevoluntarias",
+    "NEXT_PUBLIC_MF_VOLUNTARIAS_BASE_PATH": "/liquideypaguevoluntarias",
+    "NEXT_PUBLIC_MF_VOLUNTARIAS_PORT": "3001",
+    "NEXT_PUBLIC_MF_VOLUNTARIAS_URL": "https://vaxtpmde69.proteccion.com.co",
+    "NEXT_PUBLIC_MF_EMPRESAS_PATH": "/portalempresas",
+    "NEXT_PUBLIC_MF_EMPRESAS_BASE_PATH": "/portalempresas",
+    "NEXT_PUBLIC_MF_EMPRESAS_PORT": "3002",
+    "NEXT_PUBLIC_MF_EMPRESAS_URL": "https://vaxtpmde69.proteccion.com.co",
+    "NEXT_PUBLIC_MF_VITE1_PATH": "/vite1",
+    "NEXT_PUBLIC_MF_VITE1_BASE_PATH": "/vite1",
+    "NEXT_PUBLIC_MF_VITE1_PORT": "3003",
+    "NEXT_PUBLIC_MF_VITE1_URL": "https://micro-vite1.vercel.app"
+  },
+  "rewrites": [
+    {
+      "source": "/vite1/:path*",
+      "destination": "https://micro-vite1.vercel.app/:path*"
+    },
+    {
+      "source": "/liquideypaguevoluntarias/:path*",
+      "destination": "https://vaxtpmde69.proteccion.com.co/:path*"
+    },
+    {
+      "source": "/portalempresas/:path*",
+      "destination": "https://vaxtpmde69.proteccion.com.co/:path*"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ]
+} 
